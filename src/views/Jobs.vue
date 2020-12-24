@@ -1,5 +1,5 @@
 <template>
-  <div class="jobs">
-    <h1>This is an jobs page</h1>
+  <div class="content">
+    <h1>This is a Jobs page</h1>
   </div>
 </template>

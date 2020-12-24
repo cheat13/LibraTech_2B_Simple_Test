@@ -1,7 +1,10 @@
 @import url("https://fonts.gstatic.com");
 @import url("https://fonts.googleapis.com/css?family=Comfortaa");
-@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Roboto");
+
+/* App */
+
 * {
     padding: 0;
     margin: 0;
@@ -13,20 +16,28 @@
     flex-flow: column;
     width: 100%;
     min-height: 100%;
-    align-items: center;
     font-family: 'Montserrat', sans-serif;
+}
+
+.content {
+    background-color: #f5f5f5;
+}
+
+.card {
+    margin: 1.5rem 2rem;
+    background-color: #fff;
 }
 
 
 /* Navbar */
 
-.navbar {
+.navbar,
+.navbar-footer {
     display: flex;
     background: #3460D1;
     position: relative;
     align-items: center;
     height: 60px;
-    width: 100%;
 }
 
 .header-box {
@@ -61,18 +72,17 @@
 }
 
 .search-bar {
+    font-family: 'Roboto';
     background: #4a7dff;
     border: 0;
-    width: 600px;
+    width: 630px;
     height: 40px;
+    padding-left: 1rem;
+    font-size: 16px;
 }
 
 .search-bar::placeholder {
-    font-family: 'Roboto';
     color: #fff;
-    font-size: 16px;
-    padding-left: 1rem;
-    letter-spacing: -0.015em;
 }
 
 .ul-box {
@@ -81,21 +91,196 @@
     justify-content: flex-end;
 }
 
-.navbar ul {
+.ul-box ul {
     display: flex;
     list-style: none;
 }
 
-.navbar ul li {
+.ul-box ul li {
     margin: 0 1.5rem;
 }
 
-.navbar ul li:last-child {
+.ul-box ul li:last-child {
     margin-right: 2rem;
 }
 
-.navbar ul li a {
+.ul-box ul li a {
     color: #f2f2f2;
     text-decoration: none;
     font-size: 15px;
+}
+
+a.router-link-exact-active {
+    color: white;
+    font-weight: bold;
+}
+
+
+/* Footer */
+
+.navbar-footer {
+    height: 264px;
+}
+
+.header-box-footer,
+.ul-box-footer,
+.quote-box {
+    display: flex;
+}
+
+.header-box-footer {
+    margin-left: 5rem;
+    flex: 3.5;
+    align-items: center;
+}
+
+.header-box-footer .logo-box {
+    background: #fff;
+    height: 55px;
+    flex: 1;
+}
+
+.header-box-footer .logo-box img {
+    padding: .35rem;
+}
+
+.topic-text-footer {
+    flex: 5;
+    font-size: 26px;
+    color: #fff;
+    font-family: 'Comfortaa';
+    margin-left: 1.5rem;
+    letter-spacing: -0.015em;
+}
+
+.ul-box-footer {
+    flex: 6;
+    justify-content: center;
+}
+
+.ul-box-footer ul {
+    display: flex;
+    list-style: none;
+    margin-left: 7rem;
+}
+
+.ul-box-footer ul li {
+    margin: 0 2rem;
+}
+
+.ul-box-footer ul li a {
+    color: #f2f2f2;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.quote-box {
+    color: #fff;
+    font-size: 12px;
+    margin: 0 4rem;
+    flex: 3;
+    justify-content: flex-end;
+}
+
+
+/* Courses */
+
+.summary-courses {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-summary,
+.detail-summary {
+    letter-spacing: -0.015em;
+    text-align: center;
+    text-shadow: 0em 0.05em 0.1em rgb(150, 150, 150);
+}
+
+.header-summary {
+    margin-top: 3.5rem;
+    margin-left: 4rem;
+    color: #3460D1;
+    font-size: 44px;
+    font-weight: bolder;
+    line-height: 72px;
+}
+
+.detail-summary {
+    margin: 1.5rem 5rem 6rem 10rem;
+    font-size: 32px;
+    line-height: 50px;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.list-image {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 3rem;
+    margin-bottom: 4rem;
+    margin-left: 2rem;
+    align-items: center;
+}
+
+.list-image img {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 4px 2px 0 rgba(0, 0, 0, 0.4);
+    width: 90%;
+}
+
+.courses {
+    padding: 5rem 5rem 2rem 5rem;
+}
+
+.item {
+    display: flex;
+    margin-bottom: 3rem;
+}
+
+.item .image-content img {
+    margin-left: 1rem;
+    width: 85%;
+}
+
+.item .text-content {
+    margin-left: 3rem;
+    flex: 3;
+}
+
+.item .text-content h1 {
+    margin-bottom: 1rem;
+    color: #3460d1;
+    font-size: 24px;
+    line-height: 34px;
+}
+
+.item .text-content p {
+    margin-right: 23rem;
+    font-size: 16px;
+    line-height: 30px;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.pagination ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination li:first-of-type {
+    margin-left: 2rem;
+}
+
+.pagination li {
+    margin-right: 1.6rem;
+    list-style: none;
+    font-size: 34px;
+}
+
+.pagination li.active {
+    font-weight: bolder;
+}
+
+.arrow:hover {
+    cursor: pointer;
 }

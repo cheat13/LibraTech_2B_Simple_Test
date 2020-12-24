@@ -1,15 +1,12 @@
 <template>
-  <nav class="navbar">
-    <div class="header-box">
+  <footer class="navbar-footer">
+    <div class="header-box-footer">
       <div class="logo-box">
-        <img :src="logo" />
+        <img src="@/assets/libra_logo.png" />
       </div>
-      <p class="topic-text">LIBRA TECH</p>
+      <p class="topic-text-footer">LIBRA TECH</p>
     </div>
-    <div class="search-box">
-      <input class="search-bar" type="text" placeholder="search" />
-    </div>
-    <div class="ul-box">
+    <div class="ul-box-footer">
       <ul>
         <li>
           <router-link to="/">Home</router-link>
@@ -25,16 +22,14 @@
         </li>
       </ul>
     </div>
-  </nav>
+    <div className="quote-box">
+      <p>© LIBRA TECH, Inc. 2020. We love our users!</p>
+    </div>
+  </footer>
 </template>
 
 <script>
 export default {
-  name: "Navbar",
-  data() {
-    return {
-      logo: require("@/assets/libra_logo.png"),
-    };
-  },
+  name: "Footer",
 };
 </script>
