@@ -1,18 +1,15 @@
 <template>
   <div class="content">
     <div class="card summary-courses">
-      <p className="header-summary">Our courses</p>
-      <p className="detail-summary">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore
-      </p>
+      <p className="header-summary">{{ header }}</p>
+      <p className="detail-summary">{{ detail }}</p>
       <div className="list-image">
         <img v-for="(image, index) in images" :key="index" :src="image" />
       </div>
     </div>
 
     <div class="card courses">
-      <div class="item" v-for="course in courses" :key="course.id">
+      <div class="item" v-for="(course, index) in courses" :key="index">
         <div class="image-content">
           <img :src="course.image" />
         </div>
@@ -27,8 +24,9 @@
           <img class="arrow" :src="arrow_left" @click="previousPage()" />
           <li
             v-for="(page, index) in pages"
-            :class="{ active: isCurrentPage(page) }"
             :key="index"
+            :class="{ active: isCurrentPage(page) }"
+            @click="gotoPage(page)"
           >
             {{ page }}
           </li>
@@ -44,14 +42,16 @@ export default {
   name: "Courses",
   data() {
     return {
+      header: "Our courses",
+      detail:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
       images: Array(6)
         .fill()
         .map((val, index) => require(`@/assets/img_${index + 1}.png`)),
       courses: Array(6)
         .fill()
-        .map((val, index) => {
+        .map(() => {
           return {
-            id: index,
             image: require("@/assets/img_empty.png"),
             header: "Sed ut perspiciatis unde omnis",
             content:
@@ -75,6 +75,9 @@ export default {
     },
     previousPage() {
       if (this.current_page > 1) this.current_page--;
+    },
+    gotoPage(page) {
+      this.current_page = page;
     },
   },
 };
