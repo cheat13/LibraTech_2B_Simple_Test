@@ -34,6 +34,25 @@
         </ul>
       </div>
     </div>
+
+    <div class="card carousel">
+      <div
+        :class="['hide-image', { active: isCurrentCarousel(index) }]"
+        v-for="(carousel, index) in carousels"
+        :key="index"
+      >
+        <img :src="carousel.image" />
+        <p class="detail-img">{{ carousel.detail }}</p>
+      </div>
+      <ul>
+        <li
+          v-for="(carousel, index) in carousels"
+          :key="index"
+          :class="{ selected: isCurrentCarousel(index) }"
+          @click="gotoCarousel(index)"
+        ></li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -64,6 +83,26 @@ export default {
         .fill()
         .map((_, i) => i + 1),
       current_page: 1,
+      carousels: [
+        {
+          image: require("@/assets/img_carousel_1.png"),
+          detail: "Everything we do now for your future.",
+        },
+        {
+          image: require("@/assets/img_carousel_2.png"),
+          detail: "Nemo enim ipsam voluptatem quia voluptas.",
+        },
+        {
+          image: require("@/assets/img_carousel_3.png"),
+          detail:
+            "sed quia consequuntur magni dolores eos qui ratione.",
+        },
+        {
+          image: require("@/assets/img_carousel_4.png"),
+          detail: "The largest community of photo enthusiasts",
+        },
+      ],
+      current_carousel_index: 3,
     };
   },
   methods: {
@@ -78,6 +117,12 @@ export default {
     },
     gotoPage(page) {
       this.current_page = page;
+    },
+    isCurrentCarousel(index) {
+      return this.current_carousel_index === index;
+    },
+    gotoCarousel(index) {
+      this.current_carousel_index = index;
     },
   },
 };
