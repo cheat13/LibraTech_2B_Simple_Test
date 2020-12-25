@@ -23,7 +23,7 @@ const routes = [{
         name: "Jobs",
         component: () =>
             import ( /* webpackChunkName: "jobs" */ "@/views/Jobs")
-    },
+    }
 ];
 
 const router = createRouter({

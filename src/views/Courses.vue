@@ -47,7 +47,7 @@ export default {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
       images: Array(6)
         .fill()
-        .map((val, index) => require(`@/assets/img_${index + 1}.png`)),
+        .map((_, i) => require(`@/assets/img_${i + 1}.png`)),
       courses: Array(6)
         .fill()
         .map(() => {
@@ -62,7 +62,7 @@ export default {
       arrow_right: require("@/assets/arrow_right.png"),
       pages: Array(10)
         .fill()
-        .map((val, index) => index + 1),
+        .map((_, i) => i + 1),
       current_page: 1,
     };
   },
