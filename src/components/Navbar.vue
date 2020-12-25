@@ -33,8 +33,8 @@ export default {
   name: "Navbar",
   data() {
     return {
-      logo: require("@/assets/libra_logo.png")
+      logo: require("@/assets/libra_logo.png"),
     };
-  }
+  },
 };
 </script>
